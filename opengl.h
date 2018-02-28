@@ -6,6 +6,13 @@
 #ifndef __OPEN_GL_H__
 #define __OPEN_GL_H__
 
+#ifdef FREETYPE_GL_USE_GLAD
+/**
+ * Use GLAD ( https://github.com/Dav1dde/glad ) loader to load OpenGL.
+ * todo check on different platforms?
+ */
+#include <glad/glad.h>
+#else
 #if defined(__APPLE__)
 #   include "TargetConditionals.h"
 #   if TARGET_OS_SIMULATOR || TARGET_OS_IPHONE
@@ -25,6 +32,7 @@
 #else
 #  include <GL/glew.h>
 #  include <GL/gl.h>
+#endif
 #endif
 
 #endif /* OPEN_GL_H */
